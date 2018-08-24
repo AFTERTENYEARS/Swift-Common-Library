@@ -36,7 +36,7 @@ extension UIImageView {
     }
 }
 
-//UIView属性扩展
+// UIView属性扩展
 extension UIView {
     public var left: CGFloat {
         get {
