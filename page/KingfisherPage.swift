@@ -33,10 +33,3 @@ class KingfisherPage: UIViewController {
         super.didReceiveMemoryWarning()
     }
 }
-
-//UIImageView方法扩展
-extension UIImageView {
-    func sk_Image(url: String){
-        self.kf.setImage(with: ImageResource(downloadURL: URL(string: url)!))
-    }
-}
