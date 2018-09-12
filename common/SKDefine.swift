@@ -117,17 +117,19 @@ extension NSDictionary {
         return self.object(forKey:key) ?? []
     }
     
-    func sk_string(key: String) -> String {
+    func sk_string(key: String) -> NSMutableString {
         if let value = self.object(forKey:key) {
             if (value is String) {
-                return value as? String ?? ""
+                let string = (value as? String ?? "") as NSString
+                return string.mutableCopy() as! NSMutableString
             } else if (value is Int) {
-                return String(value as? Int ?? 0)
+                let string = String(value as? Int ?? 0)
+                return string.mutableCopy() as! NSMutableString
             } else {
-                return ""
+                return NSMutableString(string: "")
             }
         } else {
-            return ""
+            return NSMutableString(string: "")
         }
     }
     
@@ -146,11 +148,11 @@ extension NSDictionary {
         }
     }
     
-    func sk_array(key: String) -> NSArray {
+    func sk_array(key: String) -> NSMutableArray {
         if let value = self.object(forKey:key) {
             if (value is NSArray) {
                 let valueArray: NSArray = value as! NSArray
-                return valueArray
+                return valueArray.mutableCopy() as! NSMutableArray
             } else {
                 return []
             }
@@ -159,16 +161,16 @@ extension NSDictionary {
         }
     }
     
-    func sk_dic(key: String) -> NSDictionary {
+    func sk_dic(key: String) -> NSMutableDictionary {
         if let value = self.object(forKey:key) {
             if (value is NSDictionary) {
                 let valueDic: NSDictionary = value as! NSDictionary
-                return valueDic
+                return valueDic.mutableCopy() as! NSMutableDictionary
             } else {
-                return NSDictionary()
+                return NSMutableDictionary()
             }
         } else {
-            return NSDictionary()
+            return NSMutableDictionary()
         }
     }
     
