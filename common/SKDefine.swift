@@ -126,10 +126,10 @@ extension NSDictionary {
                 let string = String(value as? Int ?? 0)
                 return string.mutableCopy() as! NSMutableString
             } else {
-                return NSMutableString(string: "")
+                return NSMutableString()
             }
         } else {
-            return NSMutableString(string: "")
+            return NSMutableString()
         }
     }
     
@@ -154,10 +154,10 @@ extension NSDictionary {
                 let valueArray: NSArray = value as! NSArray
                 return valueArray.mutableCopy() as! NSMutableArray
             } else {
-                return []
+                return NSMutableArray()
             }
         } else {
-            return []
+            return NSMutableArray()
         }
     }
     
