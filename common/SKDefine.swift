@@ -112,9 +112,11 @@ extension UIView {
 
 //NSDictionary方法扩展
 extension NSDictionary {
+    
     func sk_value(key: String) -> Any {
         return self.object(forKey:key) ?? []
     }
+    
     func sk_string(key: String) -> String {
         if let value = self.object(forKey:key) {
             if (value is String) {
@@ -128,6 +130,7 @@ extension NSDictionary {
             return ""
         }
     }
+    
     func sk_int(key: String) -> Int {
         if let value = self.object(forKey:key) {
             if (value is String) {
@@ -142,4 +145,31 @@ extension NSDictionary {
             return 0
         }
     }
+    
+    func sk_array(key: String) -> NSArray {
+        if let value = self.object(forKey:key) {
+            if (value is NSArray) {
+                let valueArray: NSArray = value as! NSArray
+                return valueArray
+            } else {
+                return []
+            }
+        } else {
+            return []
+        }
+    }
+    
+    func sk_dic(key: String) -> NSDictionary {
+        if let value = self.object(forKey:key) {
+            if (value is NSDictionary) {
+                let valueDic: NSDictionary = value as! NSDictionary
+                return valueDic
+            } else {
+                return NSDictionary()
+            }
+        } else {
+            return NSDictionary()
+        }
+    }
+    
 }
