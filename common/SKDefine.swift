@@ -109,3 +109,37 @@ extension UIView {
         }
     }
 }
+
+//NSDictionary方法扩展
+extension NSDictionary {
+    func sk_value(key: String) -> Any {
+        return self.object(forKey:key) ?? []
+    }
+    func sk_string(key: String) -> String {
+        if let value = self.object(forKey:key) {
+            if (value is String) {
+                return value as? String ?? ""
+            } else if (value is Int) {
+                return String(value as? Int ?? 0)
+            } else {
+                return ""
+            }
+        } else {
+            return ""
+        }
+    }
+    func sk_int(key: String) -> Int {
+        if let value = self.object(forKey:key) {
+            if (value is String) {
+                let valueString: NSString = value as! String as NSString
+                return valueString.integerValue
+            } else if (value is Int) {
+                return value as? Int ?? 0
+            } else {
+                return 0
+            }
+        } else {
+            return 0
+        }
+    }
+}
