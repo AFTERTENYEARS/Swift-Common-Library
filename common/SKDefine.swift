@@ -136,8 +136,8 @@ extension NSDictionary {
     func sk_int(key: String) -> Int {
         if let value = self.object(forKey:key) {
             if (value is String) {
-                let valueString: NSString = value as! String as NSString
-                return valueString.integerValue
+                let string: NSString = value as! String as NSString
+                return string.integerValue
             } else if (value is Int) {
                 return value as? Int ?? 0
             } else {
