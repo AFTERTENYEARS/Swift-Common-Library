@@ -32,21 +32,21 @@ class AlamofirePage: UIViewController {
             let button = UIButton(frame: CGRect(x: x, y: y, width: width, height: height))
             button.backgroundColor = UIColor.brown
             button.layer.cornerRadius = 4.0
-            button.setTitle(item, for: UIControlState.normal)
+            button.setTitle(item, for: UIControl.State.normal)
             self.view.addSubview(button)
             
             switch index {
             case 0:
-                button.addTarget(self, action: #selector(self.ClickGet), for: UIControlEvents.touchUpInside)
+                button.addTarget(self, action: #selector(self.ClickGet), for: UIControl.Event.touchUpInside)
                 break
             case 1:
-                button.addTarget(self, action: #selector(self.ClickPost), for: UIControlEvents.touchUpInside)
+                button.addTarget(self, action: #selector(self.ClickPost), for: UIControl.Event.touchUpInside)
                 break
             case 2:
-                button.addTarget(self, action: #selector(self.ClickPut), for: UIControlEvents.touchUpInside)
+                button.addTarget(self, action: #selector(self.ClickPut), for: UIControl.Event.touchUpInside)
                 break
             default:
-                button.addTarget(self, action: #selector(self.ClickDelete), for: UIControlEvents.touchUpInside)
+                button.addTarget(self, action: #selector(self.ClickDelete), for: UIControl.Event.touchUpInside)
                 break
             }
         }
