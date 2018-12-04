@@ -148,6 +148,23 @@ extension NSDictionary {
         }
     }
     
+    func sk_float(key: String) -> Float64 {
+        if let value = self.object(forKey:key) {
+            if (value is String) {
+                let string: NSString = value as! String as NSString
+                return Float64(string.floatValue)
+            } else if (value is Int) {
+                return value as? Float64 ?? 0
+            } else if (value is Float64) {
+                return value as? Float64 ?? 0
+            } else {
+                return 0
+            }
+        } else {
+            return 0
+        }
+    }
+    
     func sk_array(key: String) -> NSMutableArray {
         if let value = self.object(forKey:key) {
             if (value is NSArray) {
