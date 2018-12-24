@@ -17,6 +17,52 @@ public func Cell_Cancel_Select(tableView: UITableView) {
     }
 }
 
+extension UITableView {
+    public func cell_cancel_select() {
+        for item in self.visibleCells {
+            item.setSelected(false, animated: true)
+        }
+    }
+}
+
+extension UIScreen {
+    public var width: CGFloat {
+        get {
+            return UIScreen.main.bounds.size.width
+        }
+    }
+    public var height: CGFloat {
+        get {
+            return UIScreen.main.bounds.size.height
+        }
+    }
+    public var status_bar_h: CGFloat {
+        get {
+            return (UIScreen.main.bounds.size.height == 812.0 || UIScreen.main.bounds.size.height == 896.0) ? 44.0 : 20.0
+        }
+    }
+    public var nav_bar_h: CGFloat {
+        get {
+            return 44.0
+        }
+    }
+    public var status_nav_h: CGFloat {
+        get {
+            return (UIScreen.main.bounds.size.height == 812.0 || UIScreen.main.bounds.size.height == 896.0) ? 88.0 : 64.0
+        }
+    }
+    public var tabbar_h: CGFloat {
+        get {
+            return 49.0
+        }
+    }
+    public var bottom_line_h: CGFloat {
+        get {
+            return (UIScreen.main.bounds.size.height == 812.0 || UIScreen.main.bounds.size.height == 896.0) ? 34.0 : 0.0
+        }
+    }
+}
+
 //随机颜色
 extension UIColor {
     open class var randomColor:UIColor{
