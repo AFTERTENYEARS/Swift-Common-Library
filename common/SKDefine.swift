@@ -160,8 +160,7 @@ extension UIView {
         }
         return self
     }
-    
-    func close() -> Void {
+    func finish() -> Void {
         
     }
 }
